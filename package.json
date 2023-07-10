@@ -1,12 +1,12 @@
 {
-  "name": "@alien-worlds/escrw-worlds-common",
-  "version": "0.0.1",
+  "name": "@alien-worlds/prop-worlds-common",
+  "version": "0.0.0",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "files": [
     "build"
   ],
-  "repository": "https://github.com/Alien-Worlds/escrw-worlds-common.git",
+  "repository": "https://github.com/Alien-Worlds/prop-worlds-common.git",
   "author": "Radoslaw Kamysz",
   "license": "MIT",
   "scripts": {
