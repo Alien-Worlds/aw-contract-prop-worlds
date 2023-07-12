@@ -1,12 +1,9 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 08:57:16 GMT
+ * Last updated on: Wed, 12 Jul 2023 11:36:10 GMT
  */
 
-import {
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/api-core';
+import { MapperImpl } from '@alien-worlds/api-core';
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 import { Updateconfig,  Config  } from "../../domain/entities";
 import { UpdateconfigMongoModel, UpdateconfigRawModel,  ConfigMongoModel, ConfigRawModel  } from "../dtos/updateconfig.dto";
@@ -20,12 +17,12 @@ export class UpdateconfigMongoMapper
 
     this.mappingFromEntity.set('newConfig', { 
       key: 'new_config', 
-      mapper:          new ConfigMongoMapper().fromEntity,    });
+      mapper: (value: Config) => new ConfigMongoMapper().fromEntity(value),
+    });
 
     this.mappingFromEntity.set('dacId', { 
       key: 'dac_id', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
   }
@@ -34,15 +31,13 @@ export class UpdateconfigMongoMapper
     const { 
       new_config,
       dac_id,
-      _id, 
+      _id,
       ...rest
     } = mongoModel;
 
     return Updateconfig.create(
-        new_config
-          ? new ConfigMongoMapper().toEntity(new_config)
-          : Config.getDefault(),
-        dac_id ?? '',
+      new ConfigMongoMapper().toEntity(new_config),
+      dac_id || '',
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -57,20 +52,17 @@ export class ConfigMongoMapper
 
     this.mappingFromEntity.set('proposalThreshold', { 
       key: 'proposal_threshold', 
-      mapper: (value: number) => 
-        value,
+      mapper: (value: number) => value,
     });
 
     this.mappingFromEntity.set('finalizeThreshold', { 
       key: 'finalize_threshold', 
-      mapper: (value: number) => 
-        value,
+      mapper: (value: number) => value,
     });
 
     this.mappingFromEntity.set('approvalDuration', { 
       key: 'approval_duration', 
-      mapper: (value: number) => 
-        value,
+      mapper: (value: number) => value,
     });
 
   }
@@ -80,14 +72,14 @@ export class ConfigMongoMapper
       proposal_threshold,
       finalize_threshold,
       approval_duration,
-      _id, 
+      _id,
       ...rest
     } = mongoModel;
 
     return Config.create(
-        proposal_threshold ?? 0,
-        finalize_threshold ?? 0,
-        approval_duration ?? 0,
+      proposal_threshold || 0,
+      finalize_threshold || 0,
+      approval_duration || 0,
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -111,10 +103,8 @@ export class UpdateconfigRawMapper
     } = rawModel;
 
     return Updateconfig.create(
-        new_config
-          ? new ConfigRawMapper().toEntity(new_config)
-          : Config.getDefault(),
-        dac_id ?? '',
+      new ConfigRawMapper().toEntity(new_config),
+      dac_id || '',
       undefined,
       rest
     );
@@ -137,9 +127,9 @@ export class ConfigRawMapper
     } = rawModel;
 
     return Config.create(
-        proposal_threshold ?? 0,
-        finalize_threshold ?? 0,
-        approval_duration ?? 0,
+      proposal_threshold || 0,
+      finalize_threshold || 0,
+      approval_duration || 0,
       undefined,
       rest
     );

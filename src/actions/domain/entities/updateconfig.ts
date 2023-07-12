@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 08:57:16 GMT
+ * Last updated on: Wed, 12 Jul 2023 11:36:10 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -47,6 +47,8 @@ export class Updateconfig implements Entity {
    *
    * @static
    * @public
+   * @param Config newConfig
+   * @param string dacId
    * @returns `Updateconfig` An instance of the `Updateconfig` class.
    */
   public static create(
@@ -58,7 +60,7 @@ export class Updateconfig implements Entity {
     const entity = new Updateconfig(
       newConfig,
       dacId,
-      id
+      id,
     );
     entity.rest = rest;
 
@@ -118,6 +120,9 @@ export class Config implements Entity {
    *
    * @static
    * @public
+   * @param number proposalThreshold
+   * @param number finalizeThreshold
+   * @param number approvalDuration
    * @returns `Config` An instance of the `Config` class.
    */
   public static create(
@@ -131,7 +136,7 @@ export class Config implements Entity {
       proposalThreshold,
       finalizeThreshold,
       approvalDuration,
-      id
+      id,
     );
     entity.rest = rest;
 

@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 08:57:16 GMT
+ * Last updated on: Wed, 12 Jul 2023 11:36:10 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -39,10 +39,11 @@ export class Createprop implements Entity {
     public proposalPay: ExtendedAsset,
     public arbitratorPay: ExtendedAsset,
     public contentHash: string,
+    public id: string,
     public category: number,
     public jobDuration: number,
     public dacId: string,
-    public id?: string,
+    
   ) {}
 
   public rest?: UnknownObject;
@@ -74,6 +75,17 @@ export class Createprop implements Entity {
    *
    * @static
    * @public
+   * @param string proposer
+   * @param string title
+   * @param string summary
+   * @param string arbitrator
+   * @param ExtendedAsset proposalPay
+   * @param ExtendedAsset arbitratorPay
+   * @param string contentHash
+   * @param string id
+   * @param number category
+   * @param number jobDuration
+   * @param string dacId
    * @returns `Createprop` An instance of the `Createprop` class.
    */
   public static create(
@@ -84,10 +96,11 @@ export class Createprop implements Entity {
     proposalPay: ExtendedAsset,
     arbitratorPay: ExtendedAsset,
     contentHash: string,
+    id: string,
     category: number,
     jobDuration: number,
     dacId: string,
-    id?: string,
+    
     rest?: UnknownObject
   ): Createprop {
     const entity = new Createprop(
@@ -98,10 +111,11 @@ export class Createprop implements Entity {
       proposalPay,
       arbitratorPay,
       contentHash,
+      id,
       category,
       jobDuration,
       dacId,
-      id
+      
     );
     entity.rest = rest;
 
@@ -116,6 +130,7 @@ export class Createprop implements Entity {
       '',
       ExtendedAsset.getDefault(),
       ExtendedAsset.getDefault(),
+      '',
       '',
       0,
       0,

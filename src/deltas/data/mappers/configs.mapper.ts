@@ -1,15 +1,13 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 08:57:16 GMT
+ * Last updated on: Wed, 12 Jul 2023 11:36:10 GMT
  */
 
-import {
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/api-core';
+import { MapperImpl } from '@alien-worlds/api-core';
 import { MongoDB } from '@alien-worlds/storage-mongodb';
-import { Configs,  PairStringStateValueVariant  } from "../../domain/entities";
-import { ConfigsMongoModel, ConfigsRawModel,  PairStringStateValueVariantMongoModel, PairStringStateValueVariantRawModel  } from "../dtos/configs.dto";
+import { Pair, PairMongoMapper, PairRawMapper } from '@alien-worlds/eosio-contract-types';
+import { Configs  } from "../../domain/entities";
+import { ConfigsMongoModel, ConfigsRawModel  } from "../dtos/configs.dto";
 
 // Mongo Mappers
 export class ConfigsMongoMapper
@@ -20,8 +18,7 @@ export class ConfigsMongoMapper
 
     this.mappingFromEntity.set('data', { 
       key: 'data', 
-      mapper: (value: PairStringStateValueVariant[]) => 
-        value.map(new PairStringStateValueVariantMongoMapper().fromEntity),
+      mapper: (values: Pair[]) => values.map(value => new PairMongoMapper().fromEntity(value)),
     });
 
   }
@@ -29,50 +26,12 @@ export class ConfigsMongoMapper
   public toEntity(mongoModel: ConfigsMongoModel): Configs {
     const { 
       data,
-      _id, 
+      _id,
       ...rest
     } = mongoModel;
 
     return Configs.create(
-        data?.map(new PairStringStateValueVariantMongoMapper().toEntity) ?? []
-,
-      _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
-      rest
-    );
-  }
-}
-
-export class PairStringStateValueVariantMongoMapper
-  extends MapperImpl<PairStringStateValueVariant, PairStringStateValueVariantMongoModel>
-{
-  constructor() {
-    super();
-
-    this.mappingFromEntity.set('key', { 
-      key: 'key', 
-      mapper: (value: string) => 
-        value,
-    });
-
-    this.mappingFromEntity.set('value', { 
-      key: 'value', 
-      mapper: (value: Array<unknown>) => 
-        value,
-    });
-
-  }
-
-  public toEntity(mongoModel: PairStringStateValueVariantMongoModel): PairStringStateValueVariant {
-    const { 
-      key,
-      value,
-      _id, 
-      ...rest
-    } = mongoModel;
-
-    return PairStringStateValueVariant.create(
-        key ?? '',
-        value ?? [],
+      data?.map(value => new PairMongoMapper().toEntity(value)) || [],
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -95,31 +54,7 @@ export class ConfigsRawMapper
     } = rawModel;
 
     return Configs.create(
-        data?.map(new PairStringStateValueVariantRawMapper().toEntity) ?? []
-,
-      undefined,
-      rest
-    );
-  }
-}
-
-export class PairStringStateValueVariantRawMapper
-  extends MapperImpl<PairStringStateValueVariant, PairStringStateValueVariantRawModel>
-{
-  public fromEntity(entity: PairStringStateValueVariant): PairStringStateValueVariantRawModel {
-    throw new Error('Method not implemented');
-  }
-
-  public toEntity(rawModel: PairStringStateValueVariantRawModel): PairStringStateValueVariant {
-    const { 
-      key,
-      value,
-      ...rest
-    } = rawModel;
-
-    return PairStringStateValueVariant.create(
-        key ?? '',
-        value ?? [],
+      data?.map(value => new PairRawMapper().toEntity(value)) || [],
       undefined,
       rest
     );

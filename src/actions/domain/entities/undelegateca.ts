@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 08:57:16 GMT
+ * Last updated on: Wed, 12 Jul 2023 11:36:10 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -17,14 +17,14 @@ export class Undelegateca implements Entity {
    * @public
    * @constructor
    * @param string custodian
-   * @param bigint category
+   * @param number category
    * @param string dacId
    * @param string [id]
    * @returns `Undelegateca` - An instance of the `Undelegateca` class.
    */
   public constructor(
     public custodian: string,
-    public category: bigint,
+    public category: number,
     public dacId: string,
     public id?: string,
   ) {}
@@ -50,11 +50,14 @@ export class Undelegateca implements Entity {
    *
    * @static
    * @public
+   * @param string custodian
+   * @param number category
+   * @param string dacId
    * @returns `Undelegateca` An instance of the `Undelegateca` class.
    */
   public static create(
     custodian: string,
-    category: bigint,
+    category: number,
     dacId: string,
     id?: string,
     rest?: UnknownObject
@@ -63,7 +66,7 @@ export class Undelegateca implements Entity {
       custodian,
       category,
       dacId,
-      id
+      id,
     );
     entity.rest = rest;
 
@@ -73,7 +76,7 @@ export class Undelegateca implements Entity {
   public static getDefault(): Undelegateca {
     return new Undelegateca(
       '',
-      0n,
+      0,
       '',
     );
   }

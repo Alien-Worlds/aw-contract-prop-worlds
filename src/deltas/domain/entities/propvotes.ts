@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 08:57:16 GMT
+ * Last updated on: Wed, 12 Jul 2023 11:36:10 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -16,10 +16,10 @@ export class Propvotes implements Entity {
    *
    * @public
    * @constructor
-   * @param bigint voteId
+   * @param number voteId
    * @param string voter
    * @param string proposalId
-   * @param bigint categoryId
+   * @param number categoryId
    * @param string vote
    * @param string delegatee
    * @param string commentHash
@@ -27,10 +27,10 @@ export class Propvotes implements Entity {
    * @returns `Propvotes` - An instance of the `Propvotes` class.
    */
   public constructor(
-    public voteId: bigint,
+    public voteId: number,
     public voter: string,
     public proposalId: string,
-    public categoryId: bigint,
+    public categoryId: number,
     public vote: string,
     public delegatee: string,
     public commentHash: string,
@@ -62,13 +62,20 @@ export class Propvotes implements Entity {
    *
    * @static
    * @public
+   * @param number voteId
+   * @param string voter
+   * @param string proposalId
+   * @param number categoryId
+   * @param string vote
+   * @param string delegatee
+   * @param string commentHash
    * @returns `Propvotes` An instance of the `Propvotes` class.
    */
   public static create(
-    voteId: bigint,
+    voteId: number,
     voter: string,
     proposalId: string,
-    categoryId: bigint,
+    categoryId: number,
     vote: string,
     delegatee: string,
     commentHash: string,
@@ -83,7 +90,7 @@ export class Propvotes implements Entity {
       vote,
       delegatee,
       commentHash,
-      id
+      id,
     );
     entity.rest = rest;
 
@@ -92,10 +99,10 @@ export class Propvotes implements Entity {
 
   public static getDefault(): Propvotes {
     return new Propvotes(
-      0n,
+      0,
       '',
       '',
-      0n,
+      0,
       '',
       '',
       '',

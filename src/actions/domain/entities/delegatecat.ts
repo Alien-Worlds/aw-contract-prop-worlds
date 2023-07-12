@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 08:57:16 GMT
+ * Last updated on: Wed, 12 Jul 2023 11:36:10 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -17,7 +17,7 @@ export class Delegatecat implements Entity {
    * @public
    * @constructor
    * @param string custodian
-   * @param bigint category
+   * @param number category
    * @param string delegateeCustodian
    * @param string dacId
    * @param string [id]
@@ -25,7 +25,7 @@ export class Delegatecat implements Entity {
    */
   public constructor(
     public custodian: string,
-    public category: bigint,
+    public category: number,
     public delegateeCustodian: string,
     public dacId: string,
     public id?: string,
@@ -53,11 +53,15 @@ export class Delegatecat implements Entity {
    *
    * @static
    * @public
+   * @param string custodian
+   * @param number category
+   * @param string delegateeCustodian
+   * @param string dacId
    * @returns `Delegatecat` An instance of the `Delegatecat` class.
    */
   public static create(
     custodian: string,
-    category: bigint,
+    category: number,
     delegateeCustodian: string,
     dacId: string,
     id?: string,
@@ -68,7 +72,7 @@ export class Delegatecat implements Entity {
       category,
       delegateeCustodian,
       dacId,
-      id
+      id,
     );
     entity.rest = rest;
 
@@ -78,7 +82,7 @@ export class Delegatecat implements Entity {
   public static getDefault(): Delegatecat {
     return new Delegatecat(
       '',
-      0n,
+      0,
       '',
       '',
     );

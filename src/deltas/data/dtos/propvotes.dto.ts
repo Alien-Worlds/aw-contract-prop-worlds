@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 08:57:16 GMT
+ * Last updated on: Wed, 12 Jul 2023 11:36:10 GMT
  */
 
 import { MongoDB } from '@alien-worlds/storage-mongodb';
@@ -14,10 +14,10 @@ import { MongoDB } from '@alien-worlds/storage-mongodb';
  */
 export type PropvotesMongoModel = {
   _id?: MongoDB.ObjectId;
-  vote_id?: MongoDB.Long;
+  vote_id?: number;
   voter?: string;
   proposal_id?: string;
-  category_id?: MongoDB.Long;
+  category_id?: number;
   vote?: string;
   delegatee?: string;
   comment_hash?: string;
@@ -32,10 +32,10 @@ export type PropvotesMongoModel = {
  * @typedef {Object} PropvotesRawModel
  */
 export type PropvotesRawModel = {
-  vote_id?: bigint;
+  vote_id?: number;
   voter?: string;
   proposal_id?: string;
-  category_id?: bigint;
+  category_id?: number;
   vote?: string;
   delegatee?: string;
   comment_hash?: string;

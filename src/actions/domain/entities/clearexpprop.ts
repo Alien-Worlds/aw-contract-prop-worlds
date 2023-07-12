@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 08:57:16 GMT
+ * Last updated on: Wed, 12 Jul 2023 11:36:10 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -47,6 +47,8 @@ export class Clearexpprop implements Entity {
    *
    * @static
    * @public
+   * @param string proposalId
+   * @param string dacId
    * @returns `Clearexpprop` An instance of the `Clearexpprop` class.
    */
   public static create(
@@ -58,7 +60,7 @@ export class Clearexpprop implements Entity {
     const entity = new Clearexpprop(
       proposalId,
       dacId,
-      id
+      id,
     );
     entity.rest = rest;
 

@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 08:57:16 GMT
+ * Last updated on: Wed, 12 Jul 2023 11:36:10 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -53,6 +53,10 @@ export class Delegatevote implements Entity {
    *
    * @static
    * @public
+   * @param string custodian
+   * @param string proposalId
+   * @param string delegateeCustodian
+   * @param string dacId
    * @returns `Delegatevote` An instance of the `Delegatevote` class.
    */
   public static create(
@@ -68,7 +72,7 @@ export class Delegatevote implements Entity {
       proposalId,
       delegateeCustodian,
       dacId,
-      id
+      id,
     );
     entity.rest = rest;
 

@@ -1,9 +1,10 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 08:57:16 GMT
+ * Last updated on: Wed, 12 Jul 2023 11:36:10 GMT
  */
 
 import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { Pair } from '@alien-worlds/eosio-contract-types';
 
 /**
  * MongoDB Model(s) - Types representing data from MongoDB
@@ -14,17 +15,7 @@ import { MongoDB } from '@alien-worlds/storage-mongodb';
  */
 export type ConfigsMongoModel = {
   _id?: MongoDB.ObjectId;
-  data?: PairStringStateValueVariantMongoModel[];
-  [key: string]: unknown;
-};
-
-/**
- * @typedef {Object} PairStringStateValueVariantMongoModel
- */
-export type PairStringStateValueVariantMongoModel = {
-  _id?: MongoDB.ObjectId;
-  key?: string;
-  value?: Array<unknown>;
+  data?: Pair[];
   [key: string]: unknown;
 };
 
@@ -36,16 +27,7 @@ export type PairStringStateValueVariantMongoModel = {
  * @typedef {Object} ConfigsRawModel
  */
 export type ConfigsRawModel = {
-  data?: PairStringStateValueVariantRawModel[];
-  [key: string]: unknown;
-};
-
-/**
- * @typedef {Object} PairStringStateValueVariantRawModel
- */
-export type PairStringStateValueVariantRawModel = {
-  key?: string;
-  value?: Array<unknown>;
+  data?: Pair[];
   [key: string]: unknown;
 };
 

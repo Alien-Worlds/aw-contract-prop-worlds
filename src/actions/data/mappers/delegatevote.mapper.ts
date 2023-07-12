@@ -1,12 +1,9 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 08:57:16 GMT
+ * Last updated on: Wed, 12 Jul 2023 11:36:10 GMT
  */
 
-import {
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/api-core';
+import { MapperImpl } from '@alien-worlds/api-core';
 import { MongoDB } from '@alien-worlds/storage-mongodb';
 import { Delegatevote  } from "../../domain/entities";
 import { DelegatevoteMongoModel, DelegatevoteRawModel  } from "../dtos/delegatevote.dto";
@@ -20,26 +17,22 @@ export class DelegatevoteMongoMapper
 
     this.mappingFromEntity.set('custodian', { 
       key: 'custodian', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
     this.mappingFromEntity.set('proposalId', { 
       key: 'proposal_id', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
     this.mappingFromEntity.set('delegateeCustodian', { 
       key: 'delegatee_custodian', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
     this.mappingFromEntity.set('dacId', { 
       key: 'dac_id', 
-      mapper: (value: string) => 
-        value,
+      mapper: (value: string) => value,
     });
 
   }
@@ -50,15 +43,15 @@ export class DelegatevoteMongoMapper
       proposal_id,
       delegatee_custodian,
       dac_id,
-      _id, 
+      _id,
       ...rest
     } = mongoModel;
 
     return Delegatevote.create(
-        custodian ?? '',
-        proposal_id ?? '',
-        delegatee_custodian ?? '',
-        dac_id ?? '',
+      custodian || '',
+      proposal_id || '',
+      delegatee_custodian || '',
+      dac_id || '',
       _id instanceof MongoDB.ObjectId ? _id.toString() : undefined,
       rest
     );
@@ -84,10 +77,10 @@ export class DelegatevoteRawMapper
     } = rawModel;
 
     return Delegatevote.create(
-        custodian ?? '',
-        proposal_id ?? '',
-        delegatee_custodian ?? '',
-        dac_id ?? '',
+      custodian || '',
+      proposal_id || '',
+      delegatee_custodian || '',
+      dac_id || '',
       undefined,
       rest
     );

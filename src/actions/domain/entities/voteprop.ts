@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Mon, 10 Jul 2023 08:57:16 GMT
+ * Last updated on: Wed, 12 Jul 2023 11:36:10 GMT
  */
 
 import { Entity, UnknownObject } from "@alien-worlds/api-core";
@@ -53,6 +53,10 @@ export class Voteprop implements Entity {
    *
    * @static
    * @public
+   * @param string custodian
+   * @param string proposalId
+   * @param string vote
+   * @param string dacId
    * @returns `Voteprop` An instance of the `Voteprop` class.
    */
   public static create(
@@ -68,7 +72,7 @@ export class Voteprop implements Entity {
       proposalId,
       vote,
       dacId,
-      id
+      id,
     );
     entity.rest = rest;
 
