@@ -1,16 +1,16 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 17:08:56 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:54:32 GMT
  */
 
 import { MapperImpl } from '@alien-worlds/api-core';
-import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
 import { Voteprop  } from "../../domain/entities";
 import { VotepropMongoModel, VotepropRawModel  } from "../dtos/voteprop.dto";
 
 // Mongo Mappers
 export class VotepropMongoMapper
-  extends MapperImpl<Voteprop, VotepropMongoModel>
+  extends MongoMapper<Voteprop, VotepropMongoModel>
 {
   constructor() {
     super();

@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 17:08:56 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:54:33 GMT
  */
 
 
@@ -48,7 +48,7 @@ import { UpdateconfigMongoMapper, UpdateconfigRawMapper } from "./updateconfig.m
 import { UpdpropvotesMongoMapper, UpdpropvotesRawMapper } from "./updpropvotes.mapper";
 import { VotepropMongoMapper, VotepropRawMapper } from "./voteprop.mapper";
 import { VotepropfinMongoMapper, VotepropfinRawMapper } from "./votepropfin.mapper";
-import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
 import { DataEntityType } from '../../domain/entities/prop-worlds-action';
 import { 
   PropWorldsActionMongoModel,
@@ -94,7 +94,7 @@ import { PropWorldsActionName } from '../../domain/enums';
 
 // Mongo Mapper
 export class PropWorldsActionMongoMapper
-  extends MapperImpl<ContractAction<DataEntityType>, PropWorldsActionMongoModel>
+  extends MongoMapper<ContractAction<DataEntityType>, PropWorldsActionMongoModel>
 {
   public fromEntity(
     entity: ContractAction<DataEntityType>

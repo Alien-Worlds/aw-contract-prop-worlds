@@ -1,16 +1,16 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 17:08:56 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:54:32 GMT
  */
 
 import { MapperImpl } from '@alien-worlds/api-core';
-import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
 import { Arbapprove  } from "../../domain/entities";
 import { ArbapproveMongoModel, ArbapproveRawModel  } from "../dtos/arbapprove.dto";
 
 // Mongo Mappers
 export class ArbapproveMongoMapper
-  extends MapperImpl<Arbapprove, ArbapproveMongoModel>
+  extends MongoMapper<Arbapprove, ArbapproveMongoModel>
 {
   constructor() {
     super();
