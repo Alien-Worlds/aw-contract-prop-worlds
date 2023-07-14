@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 17:54:33 GMT
+ * Last updated on: Fri, 14 Jul 2023 19:20:53 GMT
  */
 
 import { MapperImpl } from '@alien-worlds/api-core';
