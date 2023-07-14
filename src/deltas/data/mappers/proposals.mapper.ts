@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Wed, 12 Jul 2023 11:36:10 GMT
+ * Last updated on: Fri, 14 Jul 2023 17:08:56 GMT
  */
 
 import { MapperImpl } from '@alien-worlds/api-core';
@@ -89,8 +89,8 @@ export class ProposalsMongoMapper
       proposer || '',
       arbitrator || '',
       content_hash || '',
-      new ExtendedAssetMongoMapper().toEntity(proposal_pay),
-      new ExtendedAssetMongoMapper().toEntity(arbitrator_pay),
+      proposal_pay ? new ExtendedAssetMongoMapper().toEntity(proposal_pay) : ExtendedAsset.getDefault(),
+      arbitrator_pay ? new ExtendedAssetMongoMapper().toEntity(arbitrator_pay) : ExtendedAsset.getDefault(),
       state || '',
       expiry || new Date(0),
       job_duration || 0,
@@ -130,8 +130,8 @@ export class ProposalsRawMapper
       proposer || '',
       arbitrator || '',
       content_hash || '',
-      new ExtendedAssetRawMapper().toEntity(proposal_pay),
-      new ExtendedAssetRawMapper().toEntity(arbitrator_pay),
+      proposal_pay ? new ExtendedAssetRawMapper().toEntity(proposal_pay) : ExtendedAsset.getDefault(),
+      arbitrator_pay ? new ExtendedAssetRawMapper().toEntity(arbitrator_pay) : ExtendedAsset.getDefault(),
       state || '',
       expiry || new Date(0),
       job_duration || 0,
