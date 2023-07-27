@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 19:20:53 GMT
+ * Last updated on: Thu, 27 Jul 2023 15:06:33 GMT
  */
 
 
@@ -28,7 +28,7 @@ import {
   ContractAction, 
   MapperImpl, 
   parseToBigInt 
-} from '@alien-worlds/api-core';
+} from '@alien-worlds/aw-core';
 
 import { ArbapproveMongoMapper, ArbapproveRawMapper } from "./arbapprove.mapper";
 import { ArbdenyMongoMapper, ArbdenyRawMapper } from "./arbdeny.mapper";
@@ -48,7 +48,7 @@ import { UpdateconfigMongoMapper, UpdateconfigRawMapper } from "./updateconfig.m
 import { UpdpropvotesMongoMapper, UpdpropvotesRawMapper } from "./updpropvotes.mapper";
 import { VotepropMongoMapper, VotepropRawMapper } from "./voteprop.mapper";
 import { VotepropfinMongoMapper, VotepropfinRawMapper } from "./votepropfin.mapper";
-import { MongoDB, MongoMapper } from '@alien-worlds/storage-mongodb';
+import { MongoDB, MongoMapper } from '@alien-worlds/aw-storage-mongodb';
 import { DataEntityType } from '../../domain/entities/prop-worlds-action';
 import { 
   PropWorldsActionMongoModel,

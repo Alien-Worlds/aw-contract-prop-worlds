@@ -1,9 +1,9 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 19:20:53 GMT
+ * Last updated on: Thu, 27 Jul 2023 15:06:33 GMT
  */
 
-import { Entity, UnknownObject } from "@alien-worlds/api-core";
+import { Entity, UnknownObject } from "@alien-worlds/aw-core";
 
 /**
  * Represents a `Dispute` object.

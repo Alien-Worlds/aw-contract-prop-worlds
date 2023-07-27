@@ -1,9 +1,9 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 19:20:53 GMT
+ * Last updated on: Thu, 27 Jul 2023 15:06:33 GMT
  */
 
-import { MongoDB } from '@alien-worlds/storage-mongodb';
+import { MongoDB } from '@alien-worlds/aw-storage-mongodb';
 
 import { ConfigsMongoModel, ConfigsRawModel } from './configs.dto';
 import { ProposalsMongoModel, ProposalsRawModel } from './proposals.dto';

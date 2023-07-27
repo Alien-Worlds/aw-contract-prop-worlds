@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 19:20:53 GMT
+ * Last updated on: Thu, 27 Jul 2023 15:06:33 GMT
  */
 
 import { 
@@ -9,45 +9,45 @@ import {
   PropvotesRawModel,
 } from '../deltas/data/dtos';
 import { 
-  EosRpcSourceImpl,
-  EosSmartContractServiceImpl,
-} from '@alien-worlds/eos';
+  AntelopeRpcSourceImpl,
+  AntelopeSmartContractServiceImpl,
+} from '@alien-worlds/aw-antelope';
 
 import { PropWorldsContractService } from './prop-worlds-contract.service';
-import { GetTableRowsOptions, Result } from '@alien-worlds/api-core';
+import { GetTableRowsOptions, Result } from '@alien-worlds/aw-core';
 
 /**
  * A service class for interacting with the prop.worlds smart contract.
  * 
  * @class PropWorldsContractServiceImpl
- * @extends {EosSmartContractServiceImpl}
+ * @extends {AntelopeSmartContractServiceImpl}
  * @implements { PropWorldsContractService}
 */
 export class PropWorldsContractServiceImpl
-  extends EosSmartContractServiceImpl
+  extends AntelopeSmartContractServiceImpl
   implements PropWorldsContractService 
 {
   /**
    * Creates an instance of PropWorldsContractServiceImpl.
    * 
    * @constructor
-   * @param {EosRpcSourceImpl} eosRpcSourceImpl - The EOS RPC source to use for interactions.
+   * @param {AntelopeRpcSourceImpl} antelopeRpcSourceImpl - The Antelope RPC source to use for interactions.
    * @param {string} serviceUrl - Service Url
    */
-  constructor(eosRpcSourceImpl: EosRpcSourceImpl, serviceUrl: string) {
-    super(eosRpcSourceImpl, serviceUrl, 'prop.worlds');
+  constructor(antelopeRpcSourceImpl: AntelopeRpcSourceImpl, serviceUrl: string) {
+    super(antelopeRpcSourceImpl, serviceUrl, 'prop.worlds');
   }
 
   /**
-   * A EosSmartContractServiceImpl for the configs table.
+   * An AntelopeSmartContractServiceImpl for the configs table.
    * 
-   * @type {EosSmartContractServiceImpl}
+   * @type {AntelopeSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
   public async fetchConfigs (
     options?: GetTableRowsOptions
   ): Promise<Result<ConfigsRawModel[], Error>> {
-    const table_key = '';
+    const table_key = 'data';
     const tableRowOptions = {
       ...options,
       code: 'prop.worlds',
@@ -60,9 +60,9 @@ export class PropWorldsContractServiceImpl
       : await this.getAll<ConfigsRawModel>(table_key, tableRowOptions);
   }
   /**
-   * A EosSmartContractServiceImpl for the proposals table.
+   * An AntelopeSmartContractServiceImpl for the proposals table.
    * 
-   * @type {EosSmartContractServiceImpl}
+   * @type {AntelopeSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
   public async fetchProposals (
@@ -81,9 +81,9 @@ export class PropWorldsContractServiceImpl
       : await this.getAll<ProposalsRawModel>(table_key, tableRowOptions);
   }
   /**
-   * A EosSmartContractServiceImpl for the propvotes table.
+   * An AntelopeSmartContractServiceImpl for the propvotes table.
    * 
-   * @type {EosSmartContractServiceImpl}
+   * @type {AntelopeSmartContractServiceImpl}
    * @param {GetTableRowsOptions} options 
    */
   public async fetchPropvotes (

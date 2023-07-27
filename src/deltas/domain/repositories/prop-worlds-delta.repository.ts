@@ -1,6 +1,6 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 19:20:53 GMT
+ * Last updated on: Thu, 27 Jul 2023 15:06:33 GMT
  */
 
 import { 
@@ -8,7 +8,7 @@ import {
   ContractDeltaModel, 
   Repository, 
   injectable, 
-} from '@alien-worlds/api-core';
+} from '@alien-worlds/aw-core';
 
 import { DataDocumentType } from '../../data/dtos/prop-worlds-delta.dto';
 import { DataEntityType } from '../../domain/entities/prop-worlds-delta';

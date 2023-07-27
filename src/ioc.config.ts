@@ -1,14 +1,14 @@
 /**
  * Auto generated. DO NOT edit manually.
- * Last updated on: Fri, 14 Jul 2023 19:20:53 GMT
+ * Last updated on: Thu, 27 Jul 2023 15:06:33 GMT
  */
 
-import { Container, RepositoryImpl } from '@alien-worlds/api-core';
+import { Container, RepositoryImpl } from '@alien-worlds/aw-core';
 import { 
   MongoConfig,
   MongoQueryBuilders, 
   MongoSource,
-} from '@alien-worlds/storage-mongodb';
+} from '@alien-worlds/aw-storage-mongodb';
 
 import { PropWorldsActionMongoMapper } from './actions/data/mappers';
 import { PropWorldsActionMongoSource } from './actions/data/data-sources';
@@ -18,7 +18,7 @@ import { PropWorldsContractServiceImpl } from "./services/prop-worlds-contract.s
 import { PropWorldsDeltaMongoMapper } from './deltas/data/mappers';
 import { PropWorldsDeltaMongoSource } from './deltas/data/data-sources';
 import { PropWorldsDeltaRepository } from './deltas/domain/repositories';
-import { EosRpcSourceImpl } from '@alien-worlds/eos';
+import { AntelopeRpcSourceImpl } from '@alien-worlds/aw-antelope';
 
 export const setupPropWorldsActionRepository = async (
   mongo: MongoSource | MongoConfig,
@@ -77,12 +77,12 @@ export const setupPropWorldsDeltaRepository = async (
 };
 
 export const setupPropWorldsContractService = (
-  eosRpcSourceImpl: EosRpcSourceImpl,
+  antelopeRpcSourceImpl: AntelopeRpcSourceImpl,
   serviceUrl: string,
   container?: Container
 ): PropWorldsContractService => {
   const service = new PropWorldsContractServiceImpl(
-    eosRpcSourceImpl,
+    antelopeRpcSourceImpl,
     serviceUrl
   );
 
