@@ -47,7 +47,7 @@ export class PropWorldsContractServiceImpl
   public async fetchConfigs (
     options?: GetTableRowsOptions
   ): Promise<Result<ConfigsRawModel[], Error>> {
-    const table_key = 'data';
+    const table_key = '';
     const tableRowOptions = {
       ...options,
       code: 'prop.worlds',
