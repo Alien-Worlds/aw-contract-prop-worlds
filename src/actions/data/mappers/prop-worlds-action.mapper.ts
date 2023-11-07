@@ -3,8 +3,7 @@
  * Last updated on: Thu, 27 Jul 2023 15:06:33 GMT
  */
 
-
-import { 
+import {
   Arbapprove,
   Arbdeny,
   Cancelprop,
@@ -24,33 +23,66 @@ import {
   Voteprop,
   Votepropfin,
 } from '../../domain/entities';
-import { 
-  ContractAction, 
-  MapperImpl, 
-  parseToBigInt 
+import {
+  ContractAction,
+  MapperImpl,
+  parseToBigInt,
 } from '@alien-worlds/aw-core';
 
-import { ArbapproveMongoMapper, ArbapproveRawMapper } from "./arbapprove.mapper";
-import { ArbdenyMongoMapper, ArbdenyRawMapper } from "./arbdeny.mapper";
-import { CancelpropMongoMapper, CancelpropRawMapper } from "./cancelprop.mapper";
-import { CancelwipMongoMapper, CancelwipRawMapper } from "./cancelwip.mapper";
-import { ClearexppropMongoMapper, ClearexppropRawMapper } from "./clearexpprop.mapper";
-import { CommentMongoMapper, CommentRawMapper } from "./comment.mapper";
-import { CompleteworkMongoMapper, CompleteworkRawMapper } from "./completework.mapper";
-import { CreatepropMongoMapper, CreatepropRawMapper } from "./createprop.mapper";
-import { DelegatecatMongoMapper, DelegatecatRawMapper } from "./delegatecat.mapper";
-import { DelegatevoteMongoMapper, DelegatevoteRawMapper } from "./delegatevote.mapper";
-import { DisputeMongoMapper, DisputeRawMapper } from "./dispute.mapper";
-import { FinalizeMongoMapper, FinalizeRawMapper } from "./finalize.mapper";
-import { StartworkMongoMapper, StartworkRawMapper } from "./startwork.mapper";
-import { UndelegatecaMongoMapper, UndelegatecaRawMapper } from "./undelegateca.mapper";
-import { UpdateconfigMongoMapper, UpdateconfigRawMapper } from "./updateconfig.mapper";
-import { UpdpropvotesMongoMapper, UpdpropvotesRawMapper } from "./updpropvotes.mapper";
-import { VotepropMongoMapper, VotepropRawMapper } from "./voteprop.mapper";
-import { VotepropfinMongoMapper, VotepropfinRawMapper } from "./votepropfin.mapper";
+import {
+  ArbapproveMongoMapper,
+  ArbapproveRawMapper,
+} from './arbapprove.mapper';
+import { ArbdenyMongoMapper, ArbdenyRawMapper } from './arbdeny.mapper';
+import {
+  CancelpropMongoMapper,
+  CancelpropRawMapper,
+} from './cancelprop.mapper';
+import { CancelwipMongoMapper, CancelwipRawMapper } from './cancelwip.mapper';
+import {
+  ClearexppropMongoMapper,
+  ClearexppropRawMapper,
+} from './clearexpprop.mapper';
+import { CommentMongoMapper, CommentRawMapper } from './comment.mapper';
+import {
+  CompleteworkMongoMapper,
+  CompleteworkRawMapper,
+} from './completework.mapper';
+import {
+  CreatepropMongoMapper,
+  CreatepropRawMapper,
+} from './createprop.mapper';
+import {
+  DelegatecatMongoMapper,
+  DelegatecatRawMapper,
+} from './delegatecat.mapper';
+import {
+  DelegatevoteMongoMapper,
+  DelegatevoteRawMapper,
+} from './delegatevote.mapper';
+import { DisputeMongoMapper, DisputeRawMapper } from './dispute.mapper';
+import { FinalizeMongoMapper, FinalizeRawMapper } from './finalize.mapper';
+import { StartworkMongoMapper, StartworkRawMapper } from './startwork.mapper';
+import {
+  UndelegatecaMongoMapper,
+  UndelegatecaRawMapper,
+} from './undelegateca.mapper';
+import {
+  UpdateconfigMongoMapper,
+  UpdateconfigRawMapper,
+} from './updateconfig.mapper';
+import {
+  UpdpropvotesMongoMapper,
+  UpdpropvotesRawMapper,
+} from './updpropvotes.mapper';
+import { VotepropMongoMapper, VotepropRawMapper } from './voteprop.mapper';
+import {
+  VotepropfinMongoMapper,
+  VotepropfinRawMapper,
+} from './votepropfin.mapper';
 import { MongoDB, MongoMapper } from '@alien-worlds/aw-storage-mongodb';
 import { DataEntityType } from '../../domain/entities/prop-worlds-action';
-import { 
+import {
   PropWorldsActionMongoModel,
   PropWorldsActionRawModel,
   ArbapproveMongoModel,
@@ -93,9 +125,10 @@ import {
 import { PropWorldsActionName } from '../../domain/enums';
 
 // Mongo Mapper
-export class PropWorldsActionMongoMapper
-  extends MongoMapper<ContractAction<DataEntityType>, PropWorldsActionMongoModel>
-{
+export class PropWorldsActionMongoMapper extends MongoMapper<
+  ContractAction<DataEntityType>,
+  PropWorldsActionMongoModel
+> {
   public fromEntity(
     entity: ContractAction<DataEntityType>
   ): PropWorldsActionMongoModel {
@@ -195,9 +228,9 @@ export class PropWorldsActionMongoMapper
 
     const model: PropWorldsActionMongoModel = {
       block_timestamp: entity.blockTimestamp,
-      block_number: new MongoDB.Long(entity.blockNumber),
+      block_num: new MongoDB.Long(entity.blockNumber),
       global_sequence: new MongoDB.Long(entity.globalSequence),
-      receiver_sequence: new MongoDB.Long(entity.receiverSequence),
+      recv_sequence: new MongoDB.Long(entity.receiverSequence),
       trx_id: entity.transactionId,
       action: {
         name: entity.name,
@@ -207,7 +240,7 @@ export class PropWorldsActionMongoMapper
     };
 
     if (entity.id && MongoDB.ObjectId.isValid(entity.id)) {
-      model._id =  new MongoDB.ObjectId(entity.id);
+      model._id = new MongoDB.ObjectId(entity.id);
     }
 
     return model;
@@ -313,9 +346,9 @@ export class PropWorldsActionMongoMapper
     const {
       _id,
       block_timestamp,
-      block_number,
+      block_num,
       global_sequence,
-      receiver_sequence,
+      recv_sequence,
       trx_id,
       action,
     } = mongoModel;
@@ -323,13 +356,13 @@ export class PropWorldsActionMongoMapper
     return new ContractAction<DataEntityType>(
       _id.toString(),
       block_timestamp,
-      parseToBigInt(block_number),
+      parseToBigInt(block_num),
       action.account,
       action.name,
       parseToBigInt(global_sequence),
-      parseToBigInt(receiver_sequence),
+      parseToBigInt(recv_sequence),
       trx_id,
-      data,
+      data
     );
   }
 }
@@ -446,7 +479,7 @@ export class PropWorldsActionProcessorTaskMapper extends MapperImpl<
       account,
       name,
       block_timestamp,
-      block_number,
+      block_num,
       global_sequence,
       recv_sequence,
       transaction_id,
@@ -455,7 +488,7 @@ export class PropWorldsActionProcessorTaskMapper extends MapperImpl<
     return new ContractAction<DataEntityType, PropWorldsActionRawModel>(
       '',
       block_timestamp,
-      parseToBigInt(block_number),
+      parseToBigInt(block_num),
       account,
       name,
       parseToBigInt(global_sequence),
