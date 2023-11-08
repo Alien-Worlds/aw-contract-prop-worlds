@@ -3,25 +3,25 @@
  * Last updated on: Thu, 27 Jul 2023 15:06:33 GMT
  */
 
-import { Configs, Proposals, Propvotes } from '../../domain/entities';
-import {
-  ContractDelta,
-  MapperImpl,
-  parseToBigInt,
-} from '@alien-worlds/aw-core';
+
+import { 
+  Configs,
+  Proposals,
+  Propvotes,
+} from '../../domain/entities';
+import { ContractDelta, MapperImpl, parseToBigInt } from '@alien-worlds/aw-core';
 import { MongoDB, MongoMapper } from '@alien-worlds/aw-storage-mongodb';
 import { DataEntityType } from '../../domain/entities/prop-worlds-delta';
 import { PropWorldsDeltaMongoModel, PropWorldsDeltaRawModel } from '../dtos';
 import { PropWorldsTableName } from '../../domain/enums';
-import { ConfigsMongoMapper, ConfigsRawMapper } from './configs.mapper';
-import { ProposalsMongoMapper, ProposalsRawMapper } from './proposals.mapper';
-import { PropvotesMongoMapper, PropvotesRawMapper } from './propvotes.mapper';
+import { ConfigsMongoMapper, ConfigsRawMapper } from "./configs.mapper";
+import { ProposalsMongoMapper, ProposalsRawMapper } from "./proposals.mapper";
+import { PropvotesMongoMapper, PropvotesRawMapper } from "./propvotes.mapper";
 
 // Mongo Mapper
-export class PropWorldsDeltaMongoMapper extends MongoMapper<
-  ContractDelta<DataEntityType>,
-  PropWorldsDeltaMongoModel
-> {
+export class PropWorldsDeltaMongoMapper
+  extends MongoMapper<ContractDelta<DataEntityType>, PropWorldsDeltaMongoModel>
+{
   public fromEntity(
     entity: ContractDelta<DataEntityType>
   ): PropWorldsDeltaMongoModel {
@@ -46,7 +46,7 @@ export class PropWorldsDeltaMongoMapper extends MongoMapper<
 
     const model: PropWorldsDeltaMongoModel = {
       block_timestamp: entity.blockTimestamp,
-      block_num: new MongoDB.Long(entity.blockNumber),
+      block_number: new MongoDB.Long(entity.blockNumber),
       code: entity.code,
       scope: entity.scope,
       table: entity.table,
@@ -57,9 +57,9 @@ export class PropWorldsDeltaMongoMapper extends MongoMapper<
     };
 
     if (entity.id && MongoDB.ObjectId.isValid(entity.id)) {
-      model._id = new MongoDB.ObjectId(entity.id);
+      model._id =  new MongoDB.ObjectId(entity.id);
     }
-
+    
     return model;
   }
 
@@ -81,7 +81,7 @@ export class PropWorldsDeltaMongoMapper extends MongoMapper<
 
     const {
       _id,
-      block_num,
+      block_number,
       code,
       scope,
       table,
@@ -93,7 +93,7 @@ export class PropWorldsDeltaMongoMapper extends MongoMapper<
 
     return new ContractDelta<DataEntityType>(
       _id.toString(),
-      parseToBigInt(block_num),
+      parseToBigInt(block_number),
       code,
       scope,
       table,
@@ -108,8 +108,8 @@ export class PropWorldsDeltaMongoMapper extends MongoMapper<
 
 // Processor Task Mapper
 export class PropWorldsDeltaProcessorTaskMapper extends MapperImpl<
-  ContractDelta<DataEntityType, PropWorldsDeltaRawModel>,
-  PropWorldsDeltaRawModel
+  ContractDelta<DataEntityType, PropWorldsDeltaRawModel>, 
+    PropWorldsDeltaRawModel
 > {
   public fromEntity(
     entity: ContractDelta<DataEntityType, PropWorldsDeltaRawModel>
@@ -134,7 +134,7 @@ export class PropWorldsDeltaProcessorTaskMapper extends MapperImpl<
     }
 
     const {
-      block_num,
+      block_number,
       code,
       scope,
       table,
@@ -146,7 +146,7 @@ export class PropWorldsDeltaProcessorTaskMapper extends MapperImpl<
 
     return new ContractDelta<DataEntityType, PropWorldsDeltaRawModel>(
       '',
-      parseToBigInt(block_num),
+      parseToBigInt(block_number),
       code,
       scope,
       table,
@@ -154,7 +154,7 @@ export class PropWorldsDeltaProcessorTaskMapper extends MapperImpl<
       payer,
       parseToBigInt(primary_key),
       present,
-      block_timestamp
+      block_timestamp,
     );
   }
 }

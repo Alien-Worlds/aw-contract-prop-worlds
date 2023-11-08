@@ -9,36 +9,18 @@ import { ArbapproveMongoModel, ArbapproveRawModel } from './arbapprove.dto';
 import { ArbdenyMongoModel, ArbdenyRawModel } from './arbdeny.dto';
 import { CancelpropMongoModel, CancelpropRawModel } from './cancelprop.dto';
 import { CancelwipMongoModel, CancelwipRawModel } from './cancelwip.dto';
-import {
-  ClearexppropMongoModel,
-  ClearexppropRawModel,
-} from './clearexpprop.dto';
+import { ClearexppropMongoModel, ClearexppropRawModel } from './clearexpprop.dto';
 import { CommentMongoModel, CommentRawModel } from './comment.dto';
-import {
-  CompleteworkMongoModel,
-  CompleteworkRawModel,
-} from './completework.dto';
+import { CompleteworkMongoModel, CompleteworkRawModel } from './completework.dto';
 import { CreatepropMongoModel, CreatepropRawModel } from './createprop.dto';
 import { DelegatecatMongoModel, DelegatecatRawModel } from './delegatecat.dto';
-import {
-  DelegatevoteMongoModel,
-  DelegatevoteRawModel,
-} from './delegatevote.dto';
+import { DelegatevoteMongoModel, DelegatevoteRawModel } from './delegatevote.dto';
 import { DisputeMongoModel, DisputeRawModel } from './dispute.dto';
 import { FinalizeMongoModel, FinalizeRawModel } from './finalize.dto';
 import { StartworkMongoModel, StartworkRawModel } from './startwork.dto';
-import {
-  UndelegatecaMongoModel,
-  UndelegatecaRawModel,
-} from './undelegateca.dto';
-import {
-  UpdateconfigMongoModel,
-  UpdateconfigRawModel,
-} from './updateconfig.dto';
-import {
-  UpdpropvotesMongoModel,
-  UpdpropvotesRawModel,
-} from './updpropvotes.dto';
+import { UndelegatecaMongoModel, UndelegatecaRawModel } from './undelegateca.dto';
+import { UpdateconfigMongoModel, UpdateconfigRawModel } from './updateconfig.dto';
+import { UpdpropvotesMongoModel, UpdpropvotesRawModel } from './updpropvotes.dto';
 import { VotepropMongoModel, VotepropRawModel } from './voteprop.dto';
 import { VotepropfinMongoModel, VotepropfinRawModel } from './votepropfin.dto';
 
@@ -85,9 +67,9 @@ export type DataRawType =
 export type PropWorldsActionMongoModel = {
   _id?: MongoDB.ObjectId;
   block_timestamp?: Date;
-  block_num?: MongoDB.Long;
+  block_number?: MongoDB.Long;
   global_sequence?: MongoDB.Long;
-  recv_sequence?: MongoDB.Long;
+  receiver_sequence?: MongoDB.Long;
   trx_id?: string;
   action_hash?: string;
   action?: {
@@ -101,10 +83,11 @@ export type PropWorldsActionRawModel = {
   account: string;
   name: string;
   block_timestamp: Date;
-  block_num: string;
+  block_number: string;
   global_sequence: string;
   recv_sequence: string;
   transaction_id: string;
   data: DataRawType;
   [key: string]: unknown;
 };
+
